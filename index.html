@@ -46,7 +46,14 @@
     </a>
   </main>
   <script>
-    const shortcutUrl = "shortcuts://run-shortcut?name=Codex%20VPN";
+    const params = new URLSearchParams(window.location.search);
+    const threadId = params.get("thread");
+    const validThreadId = threadId && /^[0-9a-f-]{36}$/i.test(threadId);
+    const targetUrl = validThreadId ? `codex://threads/${threadId}` : "";
+    const shortcutUrl = targetUrl
+      ? `shortcuts://run-shortcut?name=Codex%20VPN&input=text&text=${encodeURIComponent(targetUrl)}`
+      : "shortcuts://run-shortcut?name=Codex%20VPN";
+    document.getElementById("launch").href = shortcutUrl;
     window.setTimeout(() => window.location.assign(shortcutUrl), 150);
   </script>
 </body>
