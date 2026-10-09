@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Открыть Codex</title>
+  <style>
+    :root {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: #f7f7f8;
+      background: #101114;
+    }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+    }
+    main {
+      width: min(88vw, 420px);
+      text-align: center;
+    }
+    a {
+      display: block;
+      padding: 16px 20px;
+      border-radius: 14px;
+      color: white;
+      background: #10a37f;
+      text-decoration: none;
+      font-weight: 650;
+      font-size: 18px;
+    }
+    p {
+      color: #b4b4b8;
+      line-height: 1.45;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Открываем Codex</h1>
+    <p>Если команда не запустилась автоматически, нажмите кнопку.</p>
+    <a id="launch" href="shortcuts://run-shortcut?name=Codex%20VPN">
+      Включить VPN и открыть Codex
+    </a>
+  </main>
+  <script>
+    const shortcutUrl = "shortcuts://run-shortcut?name=Codex%20VPN";
+    window.setTimeout(() => window.location.assign(shortcutUrl), 150);
+  </script>
+</body>
+</html>
+
